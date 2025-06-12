@@ -1,20 +1,23 @@
 package El_buho;
 
-public class Servicio {
+//Clase abstracta
+public abstract class Servicio {
+    //Atributos
     private String asiento;
     private double precio;
     private int numMaletas;
 
+    //Constructor
     public Servicio(String asiento, double precio, int numMaletas) {
         this.asiento = asiento;
         this.precio = precio;
         this.numMaletas =numMaletas;
     }
 
-    public double costoAdicional(int numMaletas){
-        return precio;
-    }
+    //Metodo abstracto
+    public abstract double costoAdicional(int numMaletas);
 
+    //Getters y setters para atributos privados
     public String getAsiento() {
         return asiento;
     }

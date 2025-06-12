@@ -3,11 +3,20 @@ abstract class Servicios{
     - asiento:String
     - precio: double
     - numMaletas: int
-    + costoAdicional(numMaletas: int): double
+    + Servicio(asiento: String, precio: double, numMaletas: int)
+    + getAsiento(): String
+    + setAsiento(asiento: String): void
+    + getPrecio(): double
+    + setPrecio(precio: double): void
+    + getNumMaletas(): int
+    + setNumMaletas(numMaletas: int): void
+    + costoAdicional(numMaletas: int): double (abstracto)
 }
 
 class Normal extends Servicios{
+    + Normal(asiento: String, precio: double, numMaletas: int)
     + costoAdicional(numMaletas: int): double
+    + infoServNormal(): void
 }
 
 class Vip extends Servicios{
@@ -35,6 +44,10 @@ class Pasajero {
      - cedula: String
      + Pasajero(nombre: String, cedula: String)
      + infoPasajero(): void
+     + getNombre(): String
+     + setNombre(nombre: String):void
+     + getCedula() : String
+     + setCedula(cedula: String) : void
 }
 
 class Ticket {
@@ -43,7 +56,7 @@ class Ticket {
       - servicio: Servicio
       + Ticket(ruta: Ruta, pasajero: Pasajero, servicio: Servicio)
       + calcularCostoTotal(): double
-      + mostrarTicket(): void
+      + mostrarInfoTicket(): void
 }
 
     Ticket --> Ruta
