@@ -1,0 +1,52 @@
+@startuml
+abstract class Servicios{
+    - asiento:String
+    - precio: double
+    - numMaletas: int
+    + costoAdicional(numMaletas: int): double
+}
+
+class Normal extends Servicios{
+    + costoAdicional(numMaletas: int): double
+}
+
+class Vip extends Servicios{
+    - tv: boolean
+    - internet: boolean
+    - comida: boolean
+    - alcohol: boolean
+    + Vip(asiento: String, precio: double, numMaletas: int, tv: boolean, internet: boolean, comida: boolean, alcohol: boolean)
+    + costoAdicional(numMaletas: int): double
+    + mostrarInfoVip(): void
+}
+
+class Ruta {
+     - origen: String
+     - destino: String
+     - precio: double
+     + Ruta(origen: String, destino: String, precio: double)
+     + getPrecio(): double
+     + setPrecio(precio: double): void
+     + infoRuta(): void
+}
+
+class Pasajero {
+     - nombre: String
+     - cedula: String
+     + Pasajero(nombre: String, cedula: String)
+     + infoPasajero(): void
+}
+
+class Ticket {
+      - ruta: Ruta
+      - pasajero: Pasajero
+      - servicio: Servicio
+      + Ticket(ruta: Ruta, pasajero: Pasajero, servicio: Servicio)
+      + calcularCostoTotal(): double
+      + mostrarTicket(): void
+}
+
+    Ticket --> Ruta
+    Ticket --> Pasajero
+    Ticket -->Servicios
+@enduml
